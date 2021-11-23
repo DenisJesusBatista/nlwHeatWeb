@@ -1,42 +1,35 @@
-.messageListWrapper {
-    height: 100vh;
-    width: 100%;
-    background: #17171a url(../../assets/banner-girl.png) no-repeat center top;
-
-    padding:440px 80px 0;
-    text-align: center;
-    
+.messageListWrapper {  
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    
+    justify-content: space-between;
+    align-items: flex-start;
 
-    strong {
-        font-size: 32px;
-        line-height: 36px;
+    > img {
+        height: 28px;
+        margin: 32px 0;
     }
 
-    svg{
-        margin-right: 16px;
-    }
-
-    .signInWithGithub{
-        background: #ffcd1e;
-        margin-top: 32px;
-        padding: 0 40px;
-        height: 56px;
-        color: #09090a;
-        font-size: 14px;
-        font-weight: bold;
-        text-transform: uppercase;
-        text-decoration: none;
-
+    .messageList {
+        list-style: none;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
+        gap: 40px;
+        flex: 1;
 
-        &:hover {
-            filter: brightness(0.9);
+        .message {
+            max-width: 440px;
+
+            .messageUser{
+                .userImage{
+                    img{
+                        width:30px;
+                        height: 30px;
+                        border-radius: 50%;
+                    }
+                }
+            }
         }
     }
 }
