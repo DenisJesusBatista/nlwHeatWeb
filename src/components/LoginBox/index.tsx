@@ -1,49 +1,15 @@
-import { useEffect } from 'react';
+import { useContext } from 'react';
 import { VscGithubInverted } from 'react-icons/vsc'
-import { api } from '../../services/api';
+import { AuthContext } from '../../contexts/auth';
 import styles from './styles.module.scss';
 
-type AuthResponse = {
-    token: string;
-    user: {
-        id: string;
-        avatar_url: string;
-        name: string;
-        login: string;
-    }
-}
+
 
 export function LoginBox() {
-    const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=e633af659fbe34873e8a`
+    const { signInUrl, user } = useContext(AuthContext);
 
-    async function signIn(githubCode: string) {
-        const response = await api.post<AuthResponse>('authenticate', {
-            code: githubCode,
-        })
+    console.log(user);
 
-        const { token, user } = response.data;
-
-        localStorage.setItem('@dowhile:token', token);
-
-        console.log(user);
-
-
-    }
-
-
-    useEffect(() => {
-        const url = window.location.href;
-        const hasGithubCode = url.includes('?code=');
-
-
-        if (hasGithubCode) {
-            const [urlWithoutCode, githubCode] = url.split('?code=')
-
-            window.history.pushState({}, '', urlWithoutCode);
-
-            signIn(githubCode);
-        }
-    }, [])
 
 
 
