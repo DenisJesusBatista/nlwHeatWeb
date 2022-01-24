@@ -8,7 +8,21 @@ import styles from './styles.module.scss';
 export function LoginBox() {
     const { signInUrl, user } = useContext(AuthContext);
 
-    console.log(user);
+    // console.log(user);
+
+    function signIn(githubCode: string) {
+
+    }
+    useEffect(() => {
+        const url = window.location.href;
+        const hasGithubCode = url.includes('?code=');
+
+        if (hasGithubCode) {
+            const [urlWithoutCode, githubCode] = url.split('?code=')
+
+            console.log({ urlWithoutCode, githubCode })
+        }
+    }, [])
 
 
 
