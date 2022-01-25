@@ -13,16 +13,16 @@ export function LoginBox() {
     function signIn(githubCode: string) {
 
     }
-    useEffect(() => {
-        const url = window.location.href;
-        const hasGithubCode = url.includes('?code=');
+    // useEffect(() => {
+    //     const url = window.location.href;
+    //     const hasGithubCode = url.includes('?code=');
 
-        if (hasGithubCode) {
-            const [urlWithoutCode, githubCode] = url.split('?code=')
+    //     if (hasGithubCode) {
+    //         const [urlWithoutCode, githubCode] = url.split('?code=')
 
-            console.log({ urlWithoutCode, githubCode })
-        }
-    }, [])
+    //         console.log({ urlWithoutCode, githubCode })
+    //     }
+    // }, [])
 
 
 
